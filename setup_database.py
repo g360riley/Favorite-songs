@@ -37,19 +37,28 @@ def create_favorite_songs_table():
             result = cursor.fetchone()
 
             if result['count'] == 0:
-                sample_songs = [
-                    ('Bohemian Rhapsody', 'Queen', 'A Night at the Opera', 'Rock', 1975, 5, 'A masterpiece of progressive rock'),
-                    ('Billie Jean', 'Michael Jackson', 'Thriller', 'Pop', 1982, 5, 'Iconic pop song with amazing beat'),
-                    ('Hotel California', 'Eagles', 'Hotel California', 'Rock', 1976, 4, 'Classic rock anthem'),
-                    ('Imagine', 'John Lennon', 'Imagine', 'Pop', 1971, 5, 'Beautiful and peaceful message'),
-                    ('Sweet Child O\' Mine', 'Guns N\' Roses', 'Appetite for Destruction', 'Hard Rock', 1987, 4, 'Great guitar work')
+                # Gage's favorite songs from SoundCloud
+                favorite_songs = [
+                    ('Like A Prayer', 'GALWARO', 'Unknown', 'Electronic/Dance', 2020, 5, 'Remix of classic Madonna track'),
+                    ('DISARM YOU (WUB FLIP)', 'WUB', 'Unknown', 'Dubstep/Bass', 2025, 5, 'Heavy bass flip'),
+                    ('Tattoo (Topic Remix)', 'Loreen', 'Unknown', 'Electronic/Pop', 2023, 4, 'Eurovision winner remix'),
+                    ('Just Hold On', 'Steve Aoki & Louis Tomlinson', 'Unknown', 'EDM/Pop', 2016, 4, 'Collaboration between EDM and pop'),
+                    ('Piercing Light (The Siberian Hardstyle Edit)', 'The Siberian', 'Unknown', 'Hardstyle', 2020, 5, 'Hardstyle edit of League of Legends track'),
+                    ('Memories (feat. Kid Cudi) [2021 Remix]', 'David Guetta', 'Unknown', 'EDM/Hip-Hop', 2020, 4, 'Guetta and Cudi collaboration'),
+                    ('Weekend', 'Louis The Child', 'Unknown', 'Future Bass', 2016, 4, 'Chill future bass vibes'),
+                    ('Say It', 'Flume ft. Tove Lo', 'Skin', 'Electronic/Alternative', 2016, 5, 'Beautiful electronic production'),
+                    ('Alive', 'Ghost in Real Life', 'Unknown', 'Electronic', 2024, 4, 'Modern electronic track'),
+                    ('LEAVEMEALONE (CRANKDAT REMIX)', 'Crankdat', 'Unknown', 'Dubstep/Trap', 2024, 5, 'High-energy remix'),
+                    ('Neon Rush', 'Gage Riley', 'Unknown', 'Electronic/Original', 2024, 5, 'My own electronic creation'),
+                    ('Twerk it Like Miley', 'Gage Riley', 'Unknown', 'Electronic/Fun', 2022, 4, 'Playful electronic track'),
+                    ('Hardbass XP', 'Gage Riley', 'Unknown', 'Hardbass', 2020, 4, 'My hardbass experiment')
                 ]
 
                 cursor.executemany('''
                 INSERT INTO favorite_songs (song_title, artist, album, genre, release_year, rating, notes)
                 VALUES (%s, %s, %s, %s, %s, %s, %s)
-                ''', sample_songs)
-                print("Added sample songs")
+                ''', favorite_songs)
+                print("Added Gage's favorite songs from SoundCloud")
             else:
                 print(f"Table already contains {result['count']} songs")
 
